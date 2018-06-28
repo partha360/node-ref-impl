@@ -7,10 +7,12 @@ module.exports = function(err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {}
 
   logger.error(
-    `${err.status || 500} - ${err.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`
+    `${err.status || 500} - ${err.message} - ${err.stack} - ${req.originalUrl} - ${req.method} - ${
+      req.ip
+    }`
   )
 
   // render the error page
   res.status(err.status || 500)
-  res.render('error')
+  res.send(err.status, err.message)
 }
