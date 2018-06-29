@@ -2,7 +2,7 @@
 
 Reference project based on [NodeJS-Advanced-Starter](https://github.com/StephenGrider/AdvancedNodeStarter)
 
-**Tech Stack**
+## Tech Stack
 
 **Client** - Sample App weritten in React - Redux to test out the APIs
 
