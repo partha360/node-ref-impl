@@ -10,16 +10,25 @@ class Header extends Component {
       case false:
         return (
           <li>
-            <a href={'/auth/google'}>Login With Google</a>
+            <a href={'/auth/google'}>
+              <img
+                style={{ paddingTop: '6px' }}
+                src="https://developers.google.com/identity/images/btn_google_signin_light_normal_web.png"
+              />
+            </a>
           </li>
         );
       default:
         return [
           <li key="3" style={{ margin: '0 10px' }}>
-            <Link to="/blogs">My Blogs</Link>
+            <Link className="deep-orange waves-effect waves-light btn-small" to="/blogs">
+              My Blogs
+            </Link>
           </li>,
           <li key="2">
-            <a href={'/auth/logout'}>Logout</a>
+            <a className="grey waves-effect waves-light btn-small" href={'/auth/logout'}>
+              Logout
+            </a>
           </li>
         ];
     }
