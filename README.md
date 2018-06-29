@@ -1,6 +1,6 @@
 # Node Reference Implementaion
 
-Reference project based on[NodeJS-Advanced-Starter](https://github.com/StephenGrider/AdvancedNodeStarter)
+Reference project based on [NodeJS-Advanced-Starter](https://github.com/StephenGrider/AdvancedNodeStarter)
 
 **Tech Stack**
 
