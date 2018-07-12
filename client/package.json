@@ -1,13 +1,13 @@
 {
-  "name": "client",
+  "name": "client-blogs",
   "version": "0.1.0",
   "private": true,
   "proxy": {
     "/auth/*": {
-      "target": "http://localhost:5000"
+      "target": "http://node-ref-impl_api_1:5000"
     },
     "/api/*": {
-      "target": "http://localhost:5000"
+      "target": "http://node-ref-impl_api_1:5000"
     }
   },
   "dependencies": {

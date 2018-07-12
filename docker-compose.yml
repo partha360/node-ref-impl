@@ -1,0 +1,42 @@
+version: '3.6'
+
+volumes:
+  yarn:
+
+services:
+  redis:
+    image: redis:alpine
+    container_name: redis
+  
+  node:
+    image: node:8.11.3-alpine
+  
+  api:
+    build:
+      context: .
+      cache_from:
+        - node
+    ports:
+      - "5000:5000"
+    depends_on: 
+      - redis
+    command: node index.js
+    image: partha360/node-ref-impl_api
+  
+  webapp:
+    build:
+      context: ./client
+      cache_from:
+        - node
+    volumes:
+      - yarn:/home/node/.cache/yarn
+    environment:
+      - PORT=80
+    ports:
+      - "80:80"
+    links:
+      - api
+    depends_on: 
+      - api
+    command: yarn start
+    image: partha360/node-ref-impl_webapp

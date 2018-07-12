@@ -18,7 +18,7 @@ Reference project based on [NodeJS-Advanced-Starter](https://github.com/StephenG
 
 **Others** - Use of async / await, common error handling, eslint, prettier config and precommit lint check
 
-## Setup & Config
+## Local Setup & Config
 
 ```shell
 npm install or yarn // Install dependencies
@@ -28,3 +28,19 @@ npm run dev or yarn dev // Run Dev environment (starts up both client & API serv
 npm run build or yarn build // Prod builds for both client and API server
 ```
 
+## Docker setup & Config
+
+Make sure Docker is installed and running https://docs.docker.com/install/
+
+```shell
+cd <to your root source directory>
+docker-compose up
+```
+
+## Run
+
+client - http://localhost
+
+api - http://localhost:5000
+
+mongo - _In Cloud_
