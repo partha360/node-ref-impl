@@ -20,10 +20,11 @@ services:
       - NODE_ENV=development
 
     expose:
-      - '5000'
+      - 5000
 
     depends_on:
       - redis
+      - db
     command: yarn run server
     image: partha360/node-ref-impl_api
 
@@ -41,7 +42,7 @@ services:
       - PORT=3000
       - NODE_ENV=development
     ports:
-      - '3000:3000'
+      - 3000:3000
 
     links:
       - api
@@ -49,3 +50,14 @@ services:
       - api
     command: yarn start
     image: partha360/node-ref-impl_webapp
+
+  db:
+    container_name: myBlog-dev-db
+    image: mvertes/alpine-mongo
+    environment:
+      - MONGO_DATA_DIR=/data/db
+    volumes:
+      - /data/db
+    ports:
+      - 27017:27017
+    command: mongod --smallfiles --bind_ip_all # --quiet
