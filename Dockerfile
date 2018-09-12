@@ -1,13 +1,10 @@
-FROM node:8.11.3-alpine
+FROM node:10-alpine
 
 RUN mkdir /opt/node-ref-app
 
 WORKDIR /opt/node-ref-app
 
-COPY package.json yarn.lock ./
-RUN yarn
-ENV PATH /opt/node-ref-app/node_modules/.bin:$PATH
+# install and cache app dependencies
+COPY package.json yarn.lock ./opt/node-reg-app/
 
 COPY . /api /opt/node-ref-app/
-
-WORKDIR /opt/node-ref-app

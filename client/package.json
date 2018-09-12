@@ -4,10 +4,10 @@
   "private": true,
   "proxy": {
     "/auth/*": {
-      "target": "http://node-ref-impl_api_1:5000"
+      "target": "http://api:5000"
     },
     "/api/*": {
-      "target": "http://node-ref-impl_api_1:5000"
+      "target": "http://api:5000"
     }
   },
   "dependencies": {

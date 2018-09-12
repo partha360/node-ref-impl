@@ -4,7 +4,7 @@ Reference project based on [NodeJS-Advanced-Starter](https://github.com/StephenG
 
 ## Tech Stack
 
-**Client** - Sample App weritten in React - Redux to test out the APIs
+**Client** - Sample App written in React - Redux to test out the APIs
 
 **API** - Express framework
 
@@ -33,14 +33,17 @@ npm run build or yarn build // Prod builds for both client and API server
 Make sure Docker is installed and running https://docs.docker.com/install/
 
 ```shell
-cd <to your root source directory>
+cd <your root source directory>
+yarn
+cd <your root source directory>/api
+yarn
 docker-compose up
 ```
 
 ## Run
 
-client - http://localhost
+client - http://localhost:3000/
 
-api - http://localhost:5000
+api - http://localhost:5000 (not exposed in docker mode)
 
 mongo - _In Cloud_

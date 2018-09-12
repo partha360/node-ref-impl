@@ -1,42 +1,51 @@
 version: '3.6'
 
-volumes:
-  yarn:
-
 services:
   redis:
     image: redis:alpine
     container_name: redis
-  
-  node:
-    image: node:8.11.3-alpine
-  
+
   api:
+    container_name: myBlog-dev-api
     build:
       context: .
-      cache_from:
-        - node
-    ports:
-      - "5000:5000"
-    depends_on: 
+
+    volumes:
+      - ./api:/opt/node-ref-app/api
+      - .:/opt/node-ref-app/
+      - ./package.json:/usr/app/package.json
+      - ./yarn.lock:/usr/app/yarn.lock
+
+    environment:
+      - NODE_ENV=development
+
+    expose:
+      - '5000'
+
+    depends_on:
       - redis
-    command: node index.js
+    command: yarn run server
     image: partha360/node-ref-impl_api
-  
+
   webapp:
+    container_name: myBlog-dev
     build:
       context: ./client
-      cache_from:
-        - node
+
     volumes:
-      - yarn:/home/node/.cache/yarn
+      - ./client:/usr/app
+      - ./client/package.json:/usr/app/package.json
+      - ./client/yarn.lock:/usr/app/yarn.lock
+
     environment:
-      - PORT=80
+      - PORT=3000
+      - NODE_ENV=development
     ports:
-      - "80:80"
+      - '3000:3000'
+
     links:
       - api
-    depends_on: 
+    depends_on:
       - api
     command: yarn start
     image: partha360/node-ref-impl_webapp

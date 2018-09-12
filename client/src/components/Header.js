@@ -43,7 +43,7 @@ class Header extends Component {
             className="left brand-logo"
             style={{ marginLeft: '10px' }}
           >
-            Bloggilly - blog with ease...
+            Bloggilly - blog with ease
           </Link>
           <ul className="right">{this.renderContent()}</ul>
         </div>

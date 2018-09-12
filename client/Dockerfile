@@ -1,7 +1,9 @@
-FROM node:8.11.3-alpine
+FROM node:10-alpine
+
+RUN mkdir /usr/app
 
 WORKDIR /usr/app
 
-COPY . .
+COPY package.json yarn.lock /usr/app/
 
-RUN yarn install --no-cache --frozen-lockfile
+COPY . /usr/app/
