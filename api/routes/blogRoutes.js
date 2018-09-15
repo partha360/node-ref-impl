@@ -23,10 +23,10 @@ module.exports = app => {
     '/api/blogs',
     requireLogin,
     asyncMiddleware(async (req, res) => {
+      console.log(req.user.id)
       const blogs = await Blog.find({ _user: req.user.id }).cache({
         key: req.user.id
       })
-
       res.send(blogs)
     })
   )

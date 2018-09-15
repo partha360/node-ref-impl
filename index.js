@@ -9,6 +9,7 @@ const logger = require('./api/config/logger')
 const errorHandler = require('./api/middlewares/errorHandler')
 const error404 = require('./api/middlewares/404')
 const methodOverride = require('method-override')
+const cors = require('cors')
 
 require('./api/models/User')
 require('./api/models/Blog')
@@ -19,7 +20,7 @@ mongoose.Promise = global.Promise
 mongoose.connect(keys.mongoURI, { useMongoClient: true })
 
 const app = express()
-
+app.use(cors({ origin: true, credentials: true }))
 app.use(bodyParser.json())
 app.use(
   cookieSession({

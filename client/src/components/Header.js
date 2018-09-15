@@ -10,7 +10,7 @@ class Header extends Component {
       case false:
         return (
           <li>
-            <a href={'/auth/google'}>
+            <a href={`${process.env.REACT_APP_API_BASE_URL}/auth/google`}>
               <img
                 style={{ paddingTop: '6px' }}
                 src="https://developers.google.com/identity/images/btn_google_signin_light_normal_web.png"
